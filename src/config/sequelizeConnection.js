@@ -1,7 +1,14 @@
-const { Sequelize } = require(`sequelize`);
+require("dotenv").config();
+const { Sequelize } = require("sequelize");
 
-const sequelize = new Sequelize(
-  "postgres://default:z1xUmcrD4eCE@ep-white-morning-a1lpr3bp.ap-southeast-1.aws.neon.tech:5432/verceldb?sslmode=require"
-);
+const sequelize = new Sequelize(process.env.URL, {
+  dialect: "postgres",
+  dialectOptions: {
+    ssl: {
+      require: true,
+    },
+  },
+  logging: false, // Disable logging if you prefer
+});
 
 module.exports = sequelize;

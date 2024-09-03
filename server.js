@@ -8,7 +8,7 @@ app.use(express.urlencoded({extended: true}))
 
 sequelize
     .authenticate()
-    .then(() => {console.log(`ishladiye va nihoyat`)})
+    .then(() => {console.log(`db connected`)})
     .catch((err) => {console.log(`Sequelize:  ${err}`)})
 
 // server run
